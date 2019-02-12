@@ -1,0 +1,4 @@
+# make use of vm's 
+sudo: 'required'
+services:
+  - docker
