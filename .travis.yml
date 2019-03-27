@@ -1,0 +1,16 @@
+# make use of vm's 
+sudo: 'required'
+services:
+  - docker
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      
+      - docker build -t sachinkgaikwad/nginx .
+      - docker images
+      - docker tag sachinkgaikwad/nginx  sachinkgaikwad/nginx
+      - docker push sachinkgaikwad/nginx
+    - stage: test
+      script: docker run --rm sachinkgaikwad/nginx cat hello.txt
+    - script: docker run --rm sachinkgaikwad/nginx cat hello.txt

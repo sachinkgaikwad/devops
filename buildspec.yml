@@ -1,0 +1,16 @@
+--- 
+env: 
+  variables: 
+    HUB_PASSWORD: 
+phases: 
+  build: 
+    commands: 
+      - "docker build -t sachinkgaikwad/webapp ."
+  post_build: 
+    commands: 
+      - "docker push sachinkgaikwad/webapp:latest"
+  pre_build: 
+    commands: 
+      - "echo \" Docker Hub Login Creds \""
+      - "docker login -u  -p "
+version: 0.1
