@@ -2,15 +2,9 @@
 sudo: 'required'
 services:
   - docker
-jobs:
-  include:
-    - stage: build docker image
-      script:
-      
-      - docker build -t sachinkgaikwad/nginx .
-      - docker images
-      - docker tag sachinkgaikwad/nginx  sachinkgaikwad/nginx
-      - docker push sachinkgaikwad/nginx
-    - stage: test
-      script: docker run --rm sachinkgaikwad/nginx cat hello.txt
-    - script: docker run --rm sachinkgaikwad/nginx cat hello.txt
+install:
+  - docker build -t sachinkgaikwad/nginx  .
+  - docker run -d -p 127.0.0.1:80:80 --name nginx sachinkgaikwad/nginx
+
+script:
+  - docker ps | grep -i myapp
