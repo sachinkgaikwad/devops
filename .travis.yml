@@ -7,4 +7,4 @@ install:
   - docker run -d -p 127.0.0.1:80:80 --name nginx sachinkgaikwad/nginx
 
 script:
-  - docker ps | grep -i myapp
+  - docker ps | grep -i nginx
