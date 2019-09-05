@@ -19,4 +19,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Push the Docker image
-      run: docker devops-nginx:$(date +%s)
+      run: docker push devops-nginx:$(date +%s)
